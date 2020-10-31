@@ -2,5 +2,4 @@
 .Rhistory
 .RData
 .Ruserdata
-./data/pml-testing.csv
-./data/pml-training.csv
+.data
