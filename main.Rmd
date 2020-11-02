@@ -2,7 +2,9 @@
 title: "Machine Learning Course Project"
 author: "Manu"
 date: "31/10/2020"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -235,7 +237,7 @@ AccuracyEnsemblingNoDTCIUp <- cfmEns$overall['AccuracyUpper']
 
 # 3. Accuracy
 ## 3.1 Accuracy comparison
-The following table shows that the best model is the one combining all models (Decision Tree, Random Forest, Boosting, Support Vector Machine). It has a value of 0.9955. The high value of Random Forest with 0.9945 is worth noticing.
+The following table shows that the best model is the one combining all models (Decision Tree, Random Forest, Boosting, Support Vector Machine). It has a value of 0.9955. The high value of Random Forest with 0.9945 is worth noticing. The confidence interval (95%) is written in the table as accuracy lower and upper.
 
 ```{r accuracyComp}
 # Accuracy value
