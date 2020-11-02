@@ -257,33 +257,20 @@ print(accuracySummaryDf, digits = 4)
 ```
 
 # 4. Submission
-Here is the final resul based on the prediction model "AccuracyEnsemblingAll" applied on the testing data set.
+Here is the final resul based on the prediction model "Random Forest" applied on the testing data set.
 
 ```{r Submission}
 # Equalize testing columns with the features defined in the training models
-        # If not, support vector machine model will fail
+        # If not, support vector machine model fail
 colNames <- colnames(subtesting)
 colNames <- colNames[!(colNames %in% "classe")]
 testing <- testing %>%
         select(one_of(colNames))
 
-# Predict on testing (final) set
-predictionDT_F <- predict(modFitDT1, newdata=testing, type="class")
+# Predict on testing (final) set with Random Forest
 predictionRF_F <- predict(modFitRF1, newdata=testing)
-predictionBoost_F <- predict(modFitBoost1, newdata=testing)
-predictionSupVect_F <- predict(modFitSupVect1, newdata=testing)
+predictionRF_F
 
-
-# Data combined
-        # Ensembling on all vars
-
-combinedPredictionDfAll_F <- data.frame(predictionDT_F, predictionRF_F, predictionBoost_F, predictionSupVect_F)
-
-
-
-predictionEnsemblingAll_F <- predict(modFitEnsemblingAll1$finalModel, newdata=combinedPredictionDfAll_F)
-predictionEnsemblingAll_F <- predict(modFitEnsemblingAll1, newdata=testing)
 ```
-
 
 
